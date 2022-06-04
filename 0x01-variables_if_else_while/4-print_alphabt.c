@@ -10,7 +10,6 @@
 int main(void)
 {
 	int i;
-	int low;
 
 	for (i = 'A'; i <= 'Z'; i++)
 	{
