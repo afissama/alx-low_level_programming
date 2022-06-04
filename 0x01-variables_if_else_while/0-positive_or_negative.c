@@ -9,10 +9,10 @@
  */
 int main(void)
 {
-	time_t t;
+	int n;
 
-	srand(time(&t));
-	int n = rand();
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
 	printf("%d", n);
 	if (n > 0)
