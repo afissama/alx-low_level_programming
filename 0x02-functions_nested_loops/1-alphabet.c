@@ -1,6 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <unistd.h>
+#include "main.h"
+
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    print_alphabet();
+    return (0);
+}
 
 /**
  * print_alphabet - writes the alphabet
