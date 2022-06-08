@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
- * print_sign - print number sign
+ * _abs - print number sign
  * @n: The number to check
  *
  * Return: abs of n
