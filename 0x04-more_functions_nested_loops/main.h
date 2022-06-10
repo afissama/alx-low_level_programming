@@ -13,4 +13,5 @@ char get_first_digit(int n);
 char get_last_digit(int n);
 void numbers(void);
 void print_line(int n);
+void print_diagonal(int n);
 #endif /* MAIN_H */
