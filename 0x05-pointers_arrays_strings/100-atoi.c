@@ -41,7 +41,6 @@ int _atoi(char *s)
 		{
 			if (pos != 0)
 			{
-				number = _sign * number;
 				break;
 			}
 		}
@@ -50,7 +49,7 @@ int _atoi(char *s)
 			_sign *= -1;
 		}
 	}
-	return (number);
+	return (get_f_number(number, _sign));
 }
 
 /**
@@ -120,4 +119,20 @@ int _pow(int n, int p)
 	}
 
 	return (result);
+}
+
+/**
+ * get_f_number - return number with sign
+ * @n: unsigned number
+ * @sign: the sign
+ *
+ * Return: integer
+ */
+int get_f_number(int n, int sign)
+{
+	if (n != INT_MAX && n != INT_MIN)
+	{
+		return (sign * n);
+	}
+	return (n);
 }
