@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * _atoi - convert to int
@@ -10,7 +11,7 @@
  */
 int _atoi(char *s)
 {
-	long int number = 0;
+	int number = 0;
 	int pos = 0;
 	int nb_size = get_number_size(s);
 	int i = 0;
@@ -23,6 +24,16 @@ int _atoi(char *s)
 		if ((s[i] >= 48 && s[i] <= 57))
 		{
 			get_int = (s[i] - '0');
+			if (number >= INT_MAX - get_int)
+			{
+				if (_sign > 0)
+				{
+					number = INT_MAX;
+					break;
+				}
+				number = INT_MIN;
+				break;
+			}
 			number = number + (get_int * (_pow(10, nb_size - pos - 1)));
 			pos++;
 		}
@@ -30,19 +41,16 @@ int _atoi(char *s)
 		{
 			if (pos != 0)
 			{
+				number = _sign * number;
 				break;
 			}
-
 		}
-
 		if (s[i] == '-')
 		{
 			_sign *= -1;
 		}
-
 	}
-
-	return (_sign * number);
+	return (number);
 }
 
 /**
