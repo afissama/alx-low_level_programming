@@ -10,7 +10,7 @@
  */
 int _atoi(char *s)
 {
-	long number = 0;
+	long int number = 0;
 	int pos = 0;
 	int nb_size = get_number_size(s);
 	int i = 0;
