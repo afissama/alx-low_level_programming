@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * _strncpy - copy src to dest
+ * _strncpy - check the code
  * @dest: char tab representing the destination
  * @src: char tab representing the source
  * @n: number of byte to read in src
@@ -10,15 +10,12 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *ptr = dest;
+	int i = 0;
 
-	while (n-- && *src)
+	while ((i < n) && src[i])
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		dest[i] = src[i];
+		i++;
 	}
-
-	*dest = '\0';
-	return (ptr);
+	return (dest);
 }
