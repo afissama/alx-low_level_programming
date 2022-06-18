@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_number - reverse the given string
@@ -13,10 +14,7 @@ void print_number(int n)
 	int t_temp = 0;
 	int nb = 0;
 
-	if (temp < 0)
-	{
-		temp = -temp;
-	}
+
 
 	if (temp == 0)
 	{
@@ -24,7 +22,7 @@ void print_number(int n)
 	}
 	t_temp = temp;
 
-	while (t_temp > 0)
+	while (t_temp != 0)
 	{
 		t_temp = t_temp / 10;
 		nb_digit++;
@@ -39,8 +37,8 @@ void print_number(int n)
 
 	while (nb_digit > 0)
 	{
-		nb = t_temp / _pow(10, nb_digit - 1);
-		t_temp = t_temp - nb * (_pow(10, nb_digit - 1));
+		nb = abs(t_temp / _pow(10, nb_digit - 1));
+		t_temp = abs(t_temp) - nb * (_pow(10, nb_digit - 1));
 		nb_digit--;
 		_putchar('0' + nb);
 	}
