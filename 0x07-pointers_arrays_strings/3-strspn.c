@@ -1,4 +1,6 @@
 #include <stdio.h>
+
+int _contain(char *s, char c);
 /**
  * _strspn - return length of initial
  *
@@ -29,7 +31,6 @@ unsigned int _strspn(char *s, char *accept)
  * @c: char
  * Return: int
  */
-int _contain(char *s, char c);
 int _contain(char *s, char c)
 {
 	unsigned int pos;
