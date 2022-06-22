@@ -16,9 +16,9 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int pos;
 
 	pos = 0;
-	if (haystack == NULL ||  haystack == NULL)
+	if (needle[0] == '\0')
 	{
-		return (NULL);
+		return (&haystack[pos]);
 	}
 
 	while (haystack[pos] != '\0')
