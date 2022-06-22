@@ -8,11 +8,9 @@
  */
 int main(void)
 {
-    char *s = "hello, world";
-    char *f = "world";
     char *t;
-
-    t = _strstr(s, f);
-    printf("%s\n", t);
+    char *o = "";
+    t = _strstr("First, solve the problem. Then, write the code.", "");
+    printf("%s\n%s", t, o);
     return (0);
 }
