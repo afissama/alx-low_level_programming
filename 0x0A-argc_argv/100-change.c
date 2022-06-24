@@ -77,8 +77,9 @@ int _check_min_change(long n)
 			tab_save[i] = temp_n;
 		}
 	}
-
-	return (tab_save[n]);
+	temp_n = tab_save[n];
+	free(tab_save);
+	return (temp_n);
 }
 
 /**
