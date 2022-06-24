@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include "main.h"
-
 /**
  * _abs - print number sign
  * @n: The number to check
