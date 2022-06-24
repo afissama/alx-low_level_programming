@@ -42,43 +42,43 @@ int main(int argc, char const *argv[])
  * @n: amount of money
  * Return: int
  */
-int _check_min_change(int n)
+int _check_min_change(long n)
 {
-	int temp_change, temp_n, pos, old_n;
+	int temp_n, pos, tp, i;
+	long temp_change;
 	int const possibilities[] = {25, 10, 5, 2, 1};
+	int *tab_save = malloc((n + 1) * sizeof(int));
 
-	if (n == 0)
+	tab_save[0] = 0;
+	tab_save[1] = 1;
+	for (i = 2; i < n + 1; i++)
 	{
-		return (0);
-	}
-	if (n == 1)
-	{
-		return (1);
-	}
-	temp_change = n;
-	temp_n = 0;
-	pos = 0;
-	while (temp_change != 0)
-	{
-		if (temp_change >= possibilities[pos])
+		temp_change = i;
+		temp_n = 0;
+		pos = 0;
+		tp = 0;
+		while (temp_change != 0)
 		{
-			temp_change -= possibilities[pos];
-			temp_n += 1;
+			if (temp_change >= possibilities[pos])
+			{
+				tp = temp_change / possibilities[pos];
+				temp_change -= (tp * possibilities[pos]);
+				temp_n += tp;
+			}
+			else
+			{
+				pos++;
+			}
 		}
-		else
+
+		tab_save[i] = tab_save[i - 1] + 1;
+		if (temp_n < tab_save[i])
 		{
-			pos++;
+			tab_save[i] = temp_n;
 		}
 	}
 
-
-	old_n = _check_min_change(n - 1) + 1;
-	if (temp_n < old_n)
-	{
-		return (temp_n);
-	}
-
-	return (old_n);
+	return (tab_save[n]);
 }
 
 /**
