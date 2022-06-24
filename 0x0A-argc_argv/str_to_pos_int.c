@@ -15,7 +15,19 @@ int _convert_to_int(char *s)
 	sign = 1;
 	pos = 0;
 	numb = 0;
-
+		/** Check the number sign **/
+	if (s[0] == '-')
+	{
+		sign = -1;
+		pos = 1;
+		len = len - 1;
+	}
+	if (s[0] == '+')
+	{
+		pos = 1;
+		len = len - 1;
+	}
+	
 	len -= 1;
 	while (s[pos])
 	{
