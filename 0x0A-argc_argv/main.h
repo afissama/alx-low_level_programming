@@ -6,4 +6,5 @@ int _strlen_recursion(char *s);
 int _pow_recursion(int x, int y);
 int _convert_to_int(char *s);
 int _abs(int n);
+void print_err(void);
 #endif
