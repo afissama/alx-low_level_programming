@@ -22,13 +22,15 @@ int main(int argc, char const *argv[])
 		print_err();
 		return (1);
 	}
-	if (atoi(argv[1]) <= 0)
+
+	numb = atoi(argv[1]);
+	if (numb < 0)
 	{
 		_putchar('0');
 		_putchar('\n');
 		return (0);
 	}
-	numb = _check_min_change(atoi(argv[1]));
+	numb = _check_min_change(numb);
 	print_number(numb);
 	_putchar('\n');
 	return (0);
@@ -45,6 +47,10 @@ int _check_min_change(int n)
 	int temp_change, temp_n, pos, old_n;
 	int const possibilities[] = {25, 10, 5, 2, 1};
 
+	if (n == 0)
+	{
+		return (0);
+	}
 	if (n == 1)
 	{
 		return (1);
