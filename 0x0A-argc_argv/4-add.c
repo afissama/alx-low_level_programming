@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 		if (_convert_to_int(argv[j]) == -1)
 		{
 			print_err();
+			_putchar('\n');
 			return (1);
 		}
 		sum += _convert_to_int(argv[j]);
@@ -55,5 +56,4 @@ void print_err(void)
 		_putchar(err[pos]);
 		pos++;
 	}
-	_putchar('\n');
 }

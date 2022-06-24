@@ -27,7 +27,7 @@ int _convert_to_int(char *s)
 		pos = 1;
 		len = len - 1;
 	}
-	
+
 	len -= 1;
 	while (s[pos])
 	{
