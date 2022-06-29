@@ -15,7 +15,7 @@ char *str_concat(char *s1, char *s2)
 	char *str;
 
 	_str_len = _strlen_recursion(s1) + _strlen_recursion(s2);
-	str = malloc(_str_len * sizeof(char));
+	str = malloc((_str_len * sizeof(char)) + 1);
 	if (str != NULL)
 	{
 		_curs = glob_curs = 0;
@@ -48,6 +48,11 @@ char *str_concat(char *s1, char *s2)
  */
 int _strlen_recursion(char *s)
 {
+	if (s == NULL)
+	{
+		return (0);
+	}
+
 	if (s[0] == '\0')
 	{
 		return (0);

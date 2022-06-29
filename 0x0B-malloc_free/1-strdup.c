@@ -19,7 +19,7 @@ char *_strdup(char *str)
 	}
 
 	_strlen = _strlen_recursion(str);
-	duplicate = malloc(_strlen * sizeof(char));
+	duplicate = malloc((_strlen * sizeof(char) + 1));
 	pos = 0;
 	if (duplicate != NULL)
 	{
