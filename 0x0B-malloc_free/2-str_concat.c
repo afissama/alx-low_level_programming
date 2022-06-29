@@ -19,19 +19,25 @@ char *str_concat(char *s1, char *s2)
 	if (str != NULL)
 	{
 		_curs = glob_curs = 0;
-		while (s1[_curs] != '\0')
+		if (s1 != NULL)
 		{
-			str[glob_curs] = s1[_curs];
-			glob_curs++;
-			_curs++;
+			while (s1[_curs] != '\0')
+			{
+				str[glob_curs] = s1[_curs];
+				glob_curs++;
+				_curs++;
+			}
 		}
 
 		_curs = 0;
-		while (s2[_curs] != '\0')
+		if (s2 != NULL)
 		{
-			str[glob_curs] = s2[_curs];
-			glob_curs++;
-			_curs++;
+			while (s2[_curs] != '\0')
+			{
+				str[glob_curs] = s2[_curs];
+				glob_curs++;
+				_curs++;
+			}
 		}
 		str[glob_curs] = '\0';
 
