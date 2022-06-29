@@ -28,7 +28,6 @@ char *_strdup(char *str)
 			duplicate[pos] = str[pos];
 			pos++;
 		}
-		duplicate[pos] = '\0';
 
 		return (duplicate);
 	}
