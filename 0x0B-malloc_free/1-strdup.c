@@ -13,10 +13,15 @@ char *_strdup(char *str)
 	int pos;
 	char *duplicate;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
 	_strlen = _strlen_recursion(str);
 	duplicate = malloc(_strlen * sizeof(char));
 	pos = 0;
-	if (duplicate != NULL && str != NULL)
+	if (duplicate != NULL)
 	{
 		while (str[pos] != '\0')
 		{
