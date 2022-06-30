@@ -30,10 +30,6 @@ char **strtow(char *str)
 					_totab[_i] = malloc((_strlen_recursion(str) * sizeof(char)) - _j);
 					if (_totab[_i] == NULL)
 					{
-						for (_j = 0; _j < _i; _j++)
-						{
-							free(_totab[_j]);
-						}
 						free(_totab);
 						return (NULL);
 					}
