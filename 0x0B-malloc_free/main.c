@@ -27,7 +27,7 @@ int main(void)
 {
     char **tab;
 
-    tab = strtow("sdbkckdbv dsvkkdfnvkj dflknvlnb kldfnvlfdnb nldfnlreldvnlrken knvkreng \nhjbdcjbc dchbjeb ");
+    tab = strtow(" hy ui opo ");
     if (tab == NULL)
     {
         printf("Failed\n");

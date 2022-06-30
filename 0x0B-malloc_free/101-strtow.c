@@ -13,7 +13,7 @@ char **strtow(char *str)
 	char **_totab;
 	int _i, _j, _k;
 
-	if (str != NULL)
+	if (str != NULL && _strlen_recursion(str) != 0)
 	{
 		_totab = (char **)malloc(_strlen_recursion(str) * sizeof(char *));
 		_i = 0, _j = 0, _k = 0;
@@ -27,7 +27,7 @@ char **strtow(char *str)
 				}
 				if (str[_j] != '\0')
 				{
-					_totab[_i] = malloc(_strlen_recursion(str) * sizeof(char));
+					_totab[_i] = malloc((_strlen_recursion(str) * sizeof(char)) - _j);
 					if (_totab[_i] == NULL)
 					{
 						for (_j = 0; _j < _i; _j++)
@@ -53,7 +53,11 @@ char **strtow(char *str)
 					_k = 0;
 				}
 			}
-			return (_totab);
+			if (_i > 0)
+			{
+				return (_totab);
+			}
+
 		}
 	}
 	return (NULL);
