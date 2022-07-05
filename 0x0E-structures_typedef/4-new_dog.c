@@ -15,30 +15,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *_dog;
 
-	_dog = malloc(sizeof(dog_t));
+	_dog = malloc(sizeof(dog_t *));
 	if (_dog == NULL)
 	{
+		free(_dog);
 		return (NULL);
 	}
-	init_dog(_dog, name, age, owner);
+	_dog->age = age;
+	_dog->name = name;
+	_dog->owner = owner;
 
 	return (_dog);
-}
-
-/**
- * init_dog - init struct dog
- *
- * @d: struct pointer to init
- * @name: dog name
- * @age: dog age
- * @owner: dog owner
- */
-void init_dog(struct dog *d, char *name, float age, char *owner)
-{
-	if (d != NULL)
-	{
-		d->age = age;
-		d->name = name;
-		d->owner = owner;
-	}
 }
