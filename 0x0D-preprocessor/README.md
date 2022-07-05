@@ -1,1 +1,2 @@
-0- object like macro
+0- object like macro SIZE
+1- Object like macro PI
