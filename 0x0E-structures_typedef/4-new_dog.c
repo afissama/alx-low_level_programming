@@ -15,18 +15,18 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *_dog;
 
-	_dog = malloc(sizeof(*_dog));
+	_dog = malloc(sizeof(dog_t));
 	if (_dog != NULL)
 	{
-		_dog->name = malloc(sizeof(_dog->name));
+		_dog->name = malloc(sizeof(char *));
 		if (_dog->name != NULL)
 		{
-			_dog->owner = malloc(sizeof(_dog->owner));
+			_dog->owner = malloc(sizeof(char *));
 			if (_dog->owner != NULL)
 			{
 				_dog->age = age;
-				_dog->name = _strcpy(_dog->name, name);
-				_dog->owner = _strcpy(_dog->owner, owner);
+				_dog->name = name;
+				_dog->owner = owner;
 				return (_dog);
 			}
 			free(_dog->owner);
@@ -35,24 +35,4 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	free(_dog);
 	return (NULL);
-}
-
-/**
- * _strcpy - copy the parsing string
- * @dest: destination param
- * @src: source param
- *
- * Return: pointer to dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i = 0;
-
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }
