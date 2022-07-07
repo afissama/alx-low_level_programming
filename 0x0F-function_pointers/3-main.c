@@ -31,13 +31,11 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	if ((strcmp("/", argv[2]) == 0) || strcmp("%", argv[2]) == 0)
+	if ((num_2 == 0) &&
+	((strcmp("/", argv[2]) == 0) || strcmp("%", argv[2]) == 0))
 	{
-		if (num_2 == 0)
-		{
-			printf("Error\n");
-			exit(100);
-		}
+		printf("Error\n");
+		exit(100);
 	}
 
 	printf("%d\n", op(num_1, num_2));
