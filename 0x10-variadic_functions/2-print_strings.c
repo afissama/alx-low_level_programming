@@ -22,7 +22,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			va_copy(ptr_copy, ptr);
 			tmp = (void *)va_arg(ptr_copy, char*);
-			if (tmp == NULL)
+			if (tmp == NULL || tmp[0] == '\0')
 			{
 				printf("(nil)");
 				va_arg(ptr, char*);
