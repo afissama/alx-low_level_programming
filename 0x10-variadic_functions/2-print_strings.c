@@ -12,7 +12,7 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
-	va_list ptr;
+	va_list ptr, ptr_copy;
 	char *tmp;
 
 	if (n == 0)
@@ -21,14 +21,16 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_start(ptr, n);
 	for (i = 0; i < n; i++)
 	{
-		tmp = va_arg(ptr, char*);
+		va_copy(ptr_copy, ptr);
+		tmp = (void *)va_arg(ptr_copy, char*);
 		if (tmp == NULL)
 		{
 			printf("(nil)");
+			va_arg(ptr, char*);
 		}
 		else
 		{
-			printf("%s", tmp);
+			printf("%s", va_arg(ptr_copy, char*));
 		}
 
 		if (i != (n - 1))
