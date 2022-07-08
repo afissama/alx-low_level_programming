@@ -15,33 +15,30 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list ptr, ptr_copy;
 	char *tmp;
 
-	if (n == 0)
-		exit(98);
-
-	va_start(ptr, n);
-	for (i = 0; i < n; i++)
+	if (n != 0)
 	{
-		va_copy(ptr_copy, ptr);
-		tmp = (void *)va_arg(ptr_copy, char*);
-		if (tmp == NULL)
+		va_start(ptr, n);
+		for (i = 0; i < n; i++)
 		{
-			printf("(nil)");
-			va_arg(ptr, char*);
-		}
-		else
-		{
-			printf("%s", va_arg(ptr_copy, char*));
-		}
+			va_copy(ptr_copy, ptr);
+			tmp = (void *)va_arg(ptr_copy, char*);
+			if (tmp == NULL)
+			{
+				printf("(nil)");
+				va_arg(ptr, char*);
+			}
+			else
+			{
+				printf("%s", va_arg(ptr, char*));
+			}
 
-		if (i != (n - 1))
-		{
-			if (separator != NULL)
-				printf("%s", separator);
+			if (i != (n - 1))
+			{
+				if (separator != NULL)
+					printf("%s", separator);
+			}
 		}
-		else
-		{
-			printf("\n");
-		}
+		va_end(ptr);
+		printf("\n");
 	}
-	va_end(ptr);
 }
