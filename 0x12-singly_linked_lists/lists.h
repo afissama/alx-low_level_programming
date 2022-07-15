@@ -15,4 +15,5 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 unsigned long print_list(const list_t *h);
+unsigned long list_len(const list_t *h);
 #endif
