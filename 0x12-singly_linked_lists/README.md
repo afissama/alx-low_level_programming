@@ -4,3 +4,4 @@
 #add to the end
 #free a list
 #print before main
+#write assembly code
