@@ -14,4 +14,5 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 unsigned long print_listint(const listint_t *h);
+unsigned long listint_len(const listint_t *h);
 #endif
