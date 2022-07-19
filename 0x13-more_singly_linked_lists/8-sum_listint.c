@@ -4,13 +4,13 @@
 
 /**
  * sum_listint - sum all n of the list
- * 
- * @head: head of list 
- * Return: element sum in int 
+ *
+ * @head: head of list
+ * Return: element sum in int
  */
 int sum_listint(listint_t *head)
 {
-	if ( head == NULL)
+	if (head == NULL)
 	{
 		return (0);
 	}
