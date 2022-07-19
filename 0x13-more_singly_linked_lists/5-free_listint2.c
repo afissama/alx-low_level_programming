@@ -4,8 +4,8 @@
 
 /**
  * free_listint2 - free list
- * 
- * @head: list head 
+ *
+ * @head: list head
  */
 void free_listint2(listint_t **head)
 {
