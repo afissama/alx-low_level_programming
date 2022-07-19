@@ -15,4 +15,5 @@ typedef struct listint_s
 } listint_t;
 unsigned long print_listint(const listint_t *h);
 unsigned long listint_len(const listint_t *h);
+listint_t *add_nodeint(listint_t **head, const int n);
 #endif
