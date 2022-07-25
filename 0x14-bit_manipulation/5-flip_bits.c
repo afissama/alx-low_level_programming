@@ -38,7 +38,7 @@ int nb_digits_in_bin(unsigned long n)
 
 	count = 0;
 	do {
-		n /= 2;
+		n = n >> 1;
 		count++;
 	} while (n != 0);
 
