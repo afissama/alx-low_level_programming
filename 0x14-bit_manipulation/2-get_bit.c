@@ -11,7 +11,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	if ((unsigned int)nb_digits_in_bin(n) > index)
 	{
-		if ((n & (1 << (index))))
+		if ((n & (1UL << (index))))
 		{
 			return (1);
 		}
@@ -32,7 +32,7 @@ int nb_digits_in_bin(unsigned long n)
 
 	count = 0;
 	do {
-		n = n >> 1;
+		n = n >> 1UL;
 		count++;
 	} while (n != 0);
 

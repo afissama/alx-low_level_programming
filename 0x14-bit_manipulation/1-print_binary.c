@@ -9,10 +9,10 @@ void print_binary(unsigned long int n)
 {
 	unsigned long i;
 
-	i = nb_digits_in_bin(n * (1UL));
+	i = nb_digits_in_bin(n);
 	while (i)
 	{
-		if ((n & (1 << (i - 1))))
+		if ((n & (1UL << (i - 1))))
 		{
 			_putchar('1');
 		}
@@ -36,9 +36,8 @@ int nb_digits_in_bin(unsigned long n)
 
 	count = 0;
 	do {
-		n = n >> 1;
+		n = n >> 1UL;
 		count++;
 	} while (n != 0);
-
 	return (count);
 }
