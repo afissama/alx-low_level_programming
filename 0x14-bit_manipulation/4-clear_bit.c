@@ -10,7 +10,7 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	if (n == NULL)
+	if (n == NULL || 64 <= index)
 	{
 		return (-1);
 	}
