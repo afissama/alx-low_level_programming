@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * print_binary - print binary format or a given number
  *
@@ -7,9 +7,9 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int i;
+	unsigned long i;
 
-	i = nb_digits_in_bin(n);
+	i = nb_digits_in_bin(n * (1UL));
 	while (i)
 	{
 		if ((n & (1 << (i - 1))))
@@ -30,15 +30,15 @@ void print_binary(unsigned long int n)
  * @n: unsigned long int
  * Return: the number of n digit in binary (int)
  */
-int nb_digits_in_bin(unsigned long int n)
+int nb_digits_in_bin(unsigned long n)
 {
-	int count, temp_n;
+	int count;
 
 	count = 0;
-	temp_n = n;
 	do {
-		temp_n = n >> (++count);
-	} while (temp_n != 0);
+		n /= 2;
+		count++;
+	} while (n != 0);
 
 	return (count);
 }

@@ -26,15 +26,15 @@ int get_bit(unsigned long int n, unsigned int index)
  * @n: unsigned long int
  * Return: the number of n digit in binary (int)
  */
-int nb_digits_in_bin(unsigned long int n)
+int nb_digits_in_bin(unsigned long n)
 {
-	int count, temp_n;
+	int count;
 
 	count = 0;
-	temp_n = n;
 	do {
-		temp_n = n >> (++count);
-	} while (temp_n != 0);
+		n /= 2;
+		count++;
+	} while (n != 0);
 
 	return (count);
 }
