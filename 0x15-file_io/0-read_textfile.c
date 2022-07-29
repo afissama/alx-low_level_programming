@@ -5,6 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * read_textfile - read text from file and display it on stdout
+ * 
+ * @filename: filname
+ * @letters: number of letters to print 
+ * Return: ssize_t 
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd, _wrote;
@@ -20,6 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			{
 				read(fd, buf, letters);
 				_wrote = write(1, buf, letters);
+				close(fd);
 				if (_wrote)
 				{
 					free(buf);
