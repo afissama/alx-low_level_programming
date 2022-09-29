@@ -22,7 +22,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	while (*curr)
 	{
-		printf("collision");
 		if (strcmp((*curr)->key, key) == 0)
 		{
 			(*curr)->value = (char *)value;
