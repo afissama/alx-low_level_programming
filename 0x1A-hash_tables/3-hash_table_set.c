@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set -
+ * hash_table_set - add or set in hasmap
  *
  * @ht: hastable pointer
  * @key: key to add
@@ -10,33 +10,33 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t **temp;
-	int may_has_next;
+	hash_node_t *curr;
+	unsigned long int key_idx;
 
 	if (ht == NULL)
 		return (0);
 
-	temp = ht->array;
-	may_has_next = 1;
-	while (*temp != NULL && (*temp)->key != key)
+	key_idx = key_index((const unsigned char *)key, ht->size);
+
+	curr = ht->array[key_idx];
+
+	while (curr)
 	{
-		temp = &(*temp)->next;
+		if (curr->key == key)
+		{
+			curr->value = (char *)value;
+			return (1);
+		}
+		curr = curr->next;
 	}
 
-	if (*temp == NULL)
-	{
-		*temp = malloc(sizeof(hash_node_t));
-		may_has_next = 0;
-	}
+	ht->array[key_idx] = malloc(sizeof(hash_node_t));
 
-	if (*temp == NULL)
+	if (ht->array[key_idx] == NULL)
 		return (0);
 
-	if (may_has_next == 0)
-		(*temp)->next = NULL;
-
-	(*temp)->key = (char *)key;
-	(*temp)->value = (char *)value;
+	ht->array[key_idx]->key = (char *)key;
+	ht->array[key_idx]->value = (char *)value;
 
 	return (1);
 }
