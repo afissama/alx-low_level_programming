@@ -10,7 +10,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *curr, *new_node;
+	hash_node_t **curr, *new_node;
 	unsigned long int key_idx;
 
 	if (ht == NULL)
@@ -18,16 +18,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	key_idx = key_index((const unsigned char *)key, ht->size);
 
-	curr = ht->array[key_idx];
+	curr = &ht->array[key_idx];
 
-	while (curr)
+	while (*curr)
 	{
-		if (strcmp(curr->key, key) == 0)
+		printf("collision");
+		if (strcmp((*curr)->key, key) == 0)
 		{
-			curr->value = (char *)value;
+			(*curr)->value = (char *)value;
 			return (1);
 		}
-		curr = curr->next;
+		curr = &(*curr)->next;
 	}
 
 	new_node = malloc(sizeof(hash_node_t));
@@ -36,7 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new_node->key = (char *)key;
 	new_node->value = (char *)value;
-	new_node->next = ht->array[key_idx];
-	ht->array[key_idx] = new_node;
+	new_node->next = *curr;
+	*curr = new_node;
 	return (1);
 }
