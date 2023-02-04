@@ -26,7 +26,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
- * hash_table_set - add or set in hasmap
+ * shash_table_set - add or set in hasmap
  *
  * @ht: shashtable pointer
  * @key: key to add
@@ -92,6 +92,21 @@ shash_node_t *new_node, shash_node_t *iterat, shash_node_t *next_pos)
 {
 	while (iterat != NULL)
 	{
+		if (strcmp(iterat->key, (char *)key) == 0)
+		{
+			new_node->snext = iterat->snext;
+			new_node->sprev = iterat->sprev;
+
+			if (iterat == ht->shead)
+			{
+				ht->shead = new_node;
+			}
+			if (iterat == ht->stail)
+				ht->stail = new_node;
+
+			iterat = new_node;
+			return;
+		}
 		if (strcmp(iterat->key, (char *)key) < 0)
 		{
 			next_pos = iterat;
@@ -171,6 +186,7 @@ void shash_table_print(const shash_table_t *ht)
 		exit(0);
 
 	printf("{");
+	isfirst = 0;
 	tmp = ht->shead;
 	while (tmp != NULL)
 	{
@@ -178,7 +194,6 @@ void shash_table_print(const shash_table_t *ht)
 			printf(", ");
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		isfirst = 1;
-
 		tmp = tmp->snext;
 	}
 

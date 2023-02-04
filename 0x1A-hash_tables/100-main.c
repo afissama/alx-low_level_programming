@@ -28,6 +28,9 @@ int main(void)
     shash_table_set(ht, "a", "6");
     shash_table_print(ht);
     shash_table_set(ht, "m", "7");
+shash_table_set(ht, "Holberton", "is cool");
+shash_table_set(ht, "Holberton", "is soooo cooool");
+shash_table_set(ht, "Holberton", "is awesome");
     shash_table_print(ht);
     shash_table_print_rev(ht);
     return (EXIT_SUCCESS);
