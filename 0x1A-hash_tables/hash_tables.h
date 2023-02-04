@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 /**
  * struct hash_node_s - Node of a hash table
  *
@@ -84,4 +85,5 @@ void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 void add_node_to_double_linked_list(shash_table_t *ht, const char *key,
 shash_node_t *new_node, shash_node_t *iterat, shash_node_t *next_pos);
+char *lower_str(char *str);
 #endif

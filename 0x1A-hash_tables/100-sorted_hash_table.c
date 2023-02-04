@@ -90,9 +90,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 void add_node_to_double_linked_list(shash_table_t *ht, const char *key,
 shash_node_t *new_node, shash_node_t *iterat, shash_node_t *next_pos)
 {
+	
 	while (iterat != NULL)
 	{
-		if (strcmp(iterat->key, (char *)key) == 0)
+		if (strcmp(lower_str(iterat->key), lower_str((char *)key)) == 0)
 		{
 			new_node->snext = iterat->snext;
 			new_node->sprev = iterat->sprev;
@@ -107,7 +108,7 @@ shash_node_t *new_node, shash_node_t *iterat, shash_node_t *next_pos)
 			iterat = new_node;
 			return;
 		}
-		if (strcmp(iterat->key, (char *)key) < 0)
+		if (strcmp(lower_str(iterat->key), lower_str((char *)key)) < 0)
 		{
 			next_pos = iterat;
 			iterat = iterat->snext;
@@ -144,6 +145,20 @@ shash_node_t *new_node, shash_node_t *iterat, shash_node_t *next_pos)
 	next_pos->snext = new_node;
 }
 
+
+char *lower_str(char *str)
+{
+	int i;
+	char *str_cp;
+
+	i = 0;
+	str_cp = malloc(sizeof(strlen(str)));
+	for(i = 0; str[i]; i++){
+		str_cp[i] = tolower(str[i]);
+	}
+	return (str_cp);
+}
+
 /**
  * shash_table_get - get value associated with a key
  *
@@ -158,6 +173,9 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 	if (ht == NULL)
 		return (NULL);
+
+	if (key == NULL)
+		return NULL;
 
 	key_idx = key_index((const unsigned char *)key, ht->size);
 	temp = ht->array[key_idx];
